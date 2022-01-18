@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 
 import './App.css';
 
-import SightingsForm from "./SightingsForm";
-import SightingsGrid from "./SightingsGrid";
-import { getSightings } from "./SightingService";
+import SightingsForm from "./components/SightingsForm";
+import SightingsGrid from "./components/SightingsGrid";
+import { getSightings } from "./containers/SightingService";
 
 function App() {
 
@@ -21,12 +21,10 @@ function App() {
     temp.push(sighting);
     setBirdSightings(temp);
   }
-
   const removeSighting = (id) => {
     const temp = birdSightings.map(s =>s);
     const indexToDel = temp.map(s => s._id).indexOf(id);
     console.log(indexToDel);
-
     temp.splice(indexToDel, 1);
     setBirdSightings(temp);
   }
